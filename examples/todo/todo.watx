@@ -1,0 +1,28 @@
+(module
+  (signal $todos i32 0)
+  (signal $input i32 0)
+  (signal $nextId i32 1)
+
+  (component $TodoApp
+    <div class="todo-app">
+      <h2>WATX Todo</h2>
+      <div class="input-row">
+        <input placeholder="What needs to be done?" onInput={set $input} />
+        <button onClick={call $addTodo}>Add</button>
+      </div>
+      <ul class="todo-list">
+        {each $todos $TodoItem}
+      </ul>
+      <span class="count">{get $todos} items</span>
+    </div>
+  )
+
+  (component $TodoItem
+    <li class="todo-item">
+      <span>{get $text}</span>
+      <button onClick={call $removeTodo}>x</button>
+    </li>
+  )
+
+  (export "TodoApp" (component $TodoApp))
+)

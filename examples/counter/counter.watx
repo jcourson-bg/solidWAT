@@ -1,0 +1,16 @@
+(module
+  (signal $count i32 0)
+
+  (component $Counter
+    <div class="counter">
+      <h2>WATX Counter</h2>
+      <span class="count">{get $count}</span>
+      <div class="buttons">
+        <button onClick={set $count (i32.sub (get $count) (i32.const 1))}>-</button>
+        <button onClick={set $count (i32.add (get $count) (i32.const 1))}>+</button>
+      </div>
+    </div>
+  )
+
+  (export "Counter" (component $Counter))
+)

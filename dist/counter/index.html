@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter — WATX App</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #e0e0e0;
+    }
+    #app {
+      text-align: center;
+      padding: 2rem;
+    }
+    .counter {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .counter h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #7f5af0, #2cb67d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .count {
+      display: block;
+      font-size: 4rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      margin: 1rem 0;
+      color: #fffffe;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    button {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #7f5af0;
+      color: #fffffe;
+    }
+    button:hover { background: #6b46e5; transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+    .watx-badge {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+    .watx-badge code {
+      background: rgba(255,255,255,0.1);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { createApp } from './counter.js';
+
+    const app = await createApp('./counter.wasm');
+    app.mount(app.Counter, '#app');
+  </script>
+</body>
+</html>

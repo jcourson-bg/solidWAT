@@ -1,0 +1,27 @@
+{
+  "name": "watx",
+  "version": "0.1.0",
+  "description": "WATX — A reactive UI framework written in WebAssembly. WAT + HTML = WATX.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "watx": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build": "node src/cli.js build examples/counter/counter.watx --out dist/counter",
+    "serve": "node src/cli.js serve examples/counter/counter.watx",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "webassembly",
+    "wasm",
+    "wat",
+    "reactive",
+    "ui",
+    "framework",
+    "signals",
+    "solidjs"
+  ],
+  "license": "MIT"
+}
