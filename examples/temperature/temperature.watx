@@ -1,0 +1,25 @@
+(module
+  ;; Temperature converter — showcases multiple signals and computed values
+  (signal $celsius i32 0)
+  (signal $fahrenheit i32 32)
+
+  (component $TemperatureConverter
+    <div class="converter">
+      <h2>Temperature Converter</h2>
+      <div class="row">
+        <label>Celsius</label>
+        <span class="value">{get $celsius}</span>
+        <div class="buttons">
+          <button onClick={set $celsius (i32.sub (get $celsius) (i32.const 1))}>-</button>
+          <button onClick={set $celsius (i32.add (get $celsius) (i32.const 1))}>+</button>
+        </div>
+      </div>
+      <div class="row">
+        <label>Fahrenheit</label>
+        <span class="value">{get $fahrenheit}</span>
+      </div>
+    </div>
+  )
+
+  (export "TemperatureConverter" (component $TemperatureConverter))
+)

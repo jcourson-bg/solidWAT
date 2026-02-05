@@ -1,0 +1,20 @@
+(module
+  ;; Stopwatch — showcases signal state for a timer
+  (signal $seconds i32 0)
+  (signal $running i32 0)
+
+  (component $Stopwatch
+    <div class="stopwatch">
+      <h2>WATX Stopwatch</h2>
+      <span class="time">{get $seconds}</span>
+      <span class="unit">seconds</span>
+      <div class="buttons">
+        <button onClick={set $running (i32.const 1)}>Start</button>
+        <button onClick={set $running (i32.const 0)}>Stop</button>
+        <button onClick={set $seconds (i32.const 0)}>Reset</button>
+      </div>
+    </div>
+  )
+
+  (export "Stopwatch" (component $Stopwatch))
+)
